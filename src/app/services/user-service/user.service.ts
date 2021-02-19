@@ -12,8 +12,8 @@ export class UserService {
     return this.networkService.checkUserLogin(userData)
   }
 
-  userRegister(userData){
-    return this.networkService.registerNewUserData(userData)
+  async userRegister(userData){
+    return await this.networkService.registerNewUserData(userData)
   }
 
   fetchUser(){

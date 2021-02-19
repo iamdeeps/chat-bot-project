@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit {
     // convenience getter for easy access to form fields
     get f() { return this.registerForm.controls; }
 
-    onSubmit() {
+    async onSubmit() {
         this.submitted = true;
 
         // reset alerts on submit
@@ -51,7 +51,7 @@ export class RegisterComponent implements OnInit {
             userName:this.f.userName.value,
             password:this.f.password.value,
         }
-        this.userService.userRegister(body)
+        await this.userService.userRegister(body)
     }
 
 }
