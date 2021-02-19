@@ -10,7 +10,8 @@ import { UserService } from 'src/app/services/user-service/user.service';
 })
 export class RegisterComponent implements OnInit {
 
-  registerForm: FormGroup;
+    registerForm: FormGroup;
+    registrationForm = true
     loading = false;
     submitted = false;
 
@@ -52,6 +53,7 @@ export class RegisterComponent implements OnInit {
             password:this.f.password.value,
         }
         await this.userService.userRegister(body)
+        this.registrationForm = !this.registrationForm
     }
 
 }

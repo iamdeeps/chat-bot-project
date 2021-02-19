@@ -6,7 +6,6 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class NetworkService {
-  resultData:any
   constructor(private http: HttpClient) { } 
 
   fetchUserData(){
@@ -27,9 +26,8 @@ export class NetworkService {
   async registerNewUserData(data){
     await this.http.post<{message:string,userData:any}>(environment.serverRoute+'register',data).subscribe((responseData)=>{
       console.log('responseData',responseData)
-      this.resultData = responseData
+      return responseData 
     })
-    return this.resultData
   }
 
 
